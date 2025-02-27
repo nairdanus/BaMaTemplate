@@ -1,0 +1,133 @@
+\ProvidesPackage{BaMa}[2025/03/01 v1.0 a package for BA and MA in Computational Linuguistics]
+
+\newif\if@BaMa@master
+\newif\if@BaMa@german
+
+\DeclareOption{bachelor}{\@BaMa@masterfalse}
+\DeclareOption{master}{\@BaMa@mastertrue}
+\DeclareOption{english}{\@BaMa@germanfalse}
+\DeclareOption{german}{\@BaMa@germantrue}
+
+% bachelor, english is the default
+\ExecuteOptions{bachelor} 
+\ExecuteOptions{english} 
+
+\ProcessOptions\relax
+
+%%
+%% Globale Variablen
+%%
+\newtoks\fach             % Studiengang
+\newtoks\fakultaet        % Fakultät für Sprach- und Literaturwissenschaften
+\newtoks\department       % Department 2
+\newtoks\arbeit           % Art der Arbeit
+\newtoks\titel            % Titel der Arbeit
+\newtoks\bearbeiter       % Name des Bearbeiters
+\newtoks\betreuer         % Name des Betreuers
+\newtoks\abgabetermin     % Datum der Abgabe
+\newtoks\bearbeitungszeit % bearbeitungszeit
+\newtoks\pruefer          % Aufgabensteller, im Allgemeinen identisch mit dem Betreuer
+\newtoks\universitaet     % im allgemeinen Ludwig Maximilians Universität
+\newtoks\ort              % Wohnort des Bearbeiters
+
+
+\if@BaMa@english
+  \global\fach{Computational Linguistics}
+  \global\ort{Munich}
+  \global\fakultaet{Faculty of Languages and Literature}
+  
+  \if@BaMo@bachelor
+    \global\arbeit{Bachelor’s Thesis}
+  \else
+    \global\arbeit{Master¹s Thesis}
+  \fi
+  
+\else
+  \global\fach{Computerlinguistik}
+  \global\ort{München}
+
+  \if@BaMo@bachelor
+    \global\arbeit{Bachelorarbeit}
+  \else
+    \global\arbeit{Masterarbeit}
+  \fi
+
+\fi
+  
+  
+\global\universitaet{Ludwig-Maximilians-Universität München}
+\global\department{Department 2}
+
+\global\bearbeiter{Max Mustermann}
+\global\betreuer{Betreuer Betreuerus}
+\global\pruefer{Prof. Barbara Plank / Prof. Hinrich Schütze}
+\global\abgabetermin{04.06.2024}
+\global\bearbeitungszeit{26.03.2024 - 04.06.2024}
+
+
+%%
+%% benoetigte Pakete
+%%
+%% Wenn es deutsch sein soll:
+%% \RequirePackage[german]{babel}
+%% sonst:
+\RequirePackage[german,english]{babel}
+\RequirePackage{amsmath}
+\RequirePackage[headsepline,plainheadsepline]{scrlayer-scrpage}
+\RequirePackage{graphicx}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage{url}
+\usepackage{tabularx}
+\usepackage{hyperref}
+
+% BIB:
+\usepackage[
+backend=biber,
+style=apa6,
+sortlocale=de
+]{biblatex}
+\addbibresource{main.bib}
+\renewcommand{\bibopenparen}{[}
+\renewcommand{\bibcloseparen}{]}
+
+
+
+%%
+%% Ausgabe des Deckblatts
+%%
+\newcommand{\deckblatt}{
+  \begin{titlepage}
+  ~
+  \vspace{-2cm}
+  \begin{center}
+   \parbox[t]{160mm}{ \includegraphics[width=160mm]{img/lmu_cis_logo.pdf} }
+  \end{center}
+
+  \begin{center}
+      \vspace{3cm}\huge
+      \the\arbeit\\
+      {\large in \the\fach}\\
+            {\large at the \the\universitaet}\\
+            {\large \the\fakultaet}\\
+
+      \vspace{2cm}\huge
+      \the\titel
+
+
+      \vspace{2cm}\large
+            submitted by\\
+      \the\bearbeiter
+
+      \vspace{\fill}\normalsize
+      \begin{tabular}{ll}
+        Supervisors:    & \the\betreuer\\
+        Examiner:       & \the\pruefer\\
+        Work period:    & \the\bearbeitungszeit
+      \end{tabular}
+
+    \end{center}
+
+  \end{titlepage}
+  %empty page to put chapters on the right 
+  \newpage\null\thispagestyle{empty}\newpage
+}

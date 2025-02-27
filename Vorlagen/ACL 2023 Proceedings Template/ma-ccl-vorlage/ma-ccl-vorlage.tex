@@ -1,0 +1,279 @@
+
+\documentclass[12pt,letterpaper]{article} % a. Set paper size to Letter, 8½ x 11. 
+%\usepackage[letterpaper,margin=1in]{geometry} % e. Set margins of 1 inch (2.54 cm.) on all four sides of the paper. 
+\usepackage[letterpaper,left=3.5cm,right=3.5cm, top=3.0cm, bottom=3.0cm, footnotesep=1.0cm]{geometry} 
+\usepackage{mathptmx} % d. ...in a simple roman face except where indicated below (§3). 
+\usepackage[onehalfspacing]{setspace} % b. Set line spacing to 1.5 throughout the document.  
+\usepackage{fancyhdr} 
+\usepackage{relsize}
+
+\usepackage[bottom]{footmisc}
+\usepackage{tabularx}
+    
+\pagestyle{empty}        % No page numbers
+
+%%%Using XeTeX (xelatex, lulatex):
+\usepackage{polyglossia}
+\usepackage{fontspec}
+\usepackage{xunicode}
+\usepackage{xltxtra}
+\usepackage{url}
+\usepackage{hyperref}
+%\usepackage[german]{babel}
+%\usepackage{german}
+\setdefaultlanguage[spelling=new, babelshorthands=true]{german}
+
+\setmainfont[Mapping=tex-text]{Linux Libertine O} %Falls nicht vorhanden müssen die LinLibertine-ttf-Dateien nach C:\windows\fonts verschoben werden
+
+
+
+\usepackage{booktabs}    % For nice-looking tables
+\usepackage{natbib}      % Citation support (required for crossrefs)
+\usepackage{expex}
+\bibpunct[:]{(}{)}{;}{a}{}{,} % Defaults for in-text citations
+\usepackage{bibentry}    % Print individual references
+
+\usepackage{acronym}
+\usepackage{multicol}
+
+
+\begin{document}
+
+\begin{center}\uppercase{Ludwig-Maximilians-Universität München}\end{center}
+\begin{center}\uppercase{Institut für Allgemeine und Typologische Sprachwissenschaft}\end{center}
+
+\vspace{3cm}
+
+%%%Block Hausarbeit:
+%\begin{center}
+%\begin{large}
+%Titel des Seminars\\
+%Name des Seminarleiters/der Seminarleiterin
+%\end{large}
+%\end{center}
+%%%Ende Block Hausarbeit
+
+\title{Titel der Arbeit}
+\date{\vspace{-5ex}}
+{\let\newpage\relax\maketitle}
+\thispagestyle{empty}
+
+
+%%%Block Masterarbeit:
+\begin{center}
+\begin{large}
+\begin{Large}
+Masterarbeit\\
+\end{Large}
+im Studiengang 'Cultural and Cognitive Linguistics' \\
+\end{large}
+\end{center}
+\begin{center}
+vorgelegt von\\
+\begin{large}
+Name des Verfassers/der Verfasserin\\
+\end{large}
+\end{center}
+\vspace{1cm}
+\begin{center}
+\begin{large}
+Betreuer: Name des Betreuers/der Betreuerin\\
+\end{large}
+\end{center}
+%%%Ende Block Masterarbeit
+
+\begin{center}
+\begin{large}
+Ablieferungstermin: \date{\today} \\
+\end{large}
+\end{center}
+
+\vspace{1,5cm}
+
+\begin{center}
+\begin{large}
+\author{Name des Verfassers/der Verfasserin}\\
+\end{large}
+Anschrift des Verfassers/der Verfasserin\\ 
+Wohnort des Verfassers/der Verfasserin\\ 
+\url{Email-Adresse}\\
+Matrikelnr.:  \\
+\end{center}
+
+
+
+\newpage
+\setcounter{page}{1}
+\tableofcontents
+\newpage
+
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[R]{\thepage}
+\renewcommand{\headrulewidth}{0pt} %obere Trennlinie
+
+\section{Einleitung}
+Dieses Dokument dient als Vorlage für Haus- bzw. Masterarbeiten\footnote{Die entsprechend kommentierten Blöcke im Bereich der Titelseite sowie die abschließenden Seiten (Lebenslauf und Erklärung) sind bei einer Hausarbeit in der \texttt{tex-Datei} zu entfernen.} des Studiengangs 'Cultural and Cognitive Linguistics' (LMU München). Es basiert auf einem LaTeX\footnote{LaTeX kann hier heruntergeladen werden: \url{https://www.latex-project.org/}; nach der Installation kann die \texttt{tex-Datei} mit einem LaTeX-Editor, z. B. TeXShop (Mac, bereits mitinstalliert) oder Texmaker (Windows, muss zusätzlich installiert werden) geöffnet werden. Das Kompilieren (Erstellen des Pdfs) erfolgt mit XeLaTeX.}-Template, das auf der ATS-Homepage erhältlich ist (= \verb+tex-Datei+ sowie weitere Templates für die Bibliographie); das Template verwendet u. a. das \emph{ExPex}-Paket zur linguistischen Glossierung.
+
+Die Vorlage orientiert sich an den Richtlinien der Zeitschrift \emph{Language} (\url{http://www.linguisticsociety.org/sites/default/files/style-sheet.pdf}); dazu wird eine leicht modifizierte \verb+bst-Datei+ (\url{http://ron.artstein.org/software.html}) verwendet (s. Kapitel \ref{sec:cit}), die Bibliographie wird mit Hilfe von BibTeX generiert (s. \verb+bib-Datei+); der verwendete Font \verb+Linux Libertine+ ist Teil des Template-Pakets (die \verb+ttf-Dateien+ müssen in den \verb+font-Ordner+ des Systems kopiert werden).
+
+
+\section{Inhaltliche Hinweise}
+Eine Hausarbeit hält wissenschaftliche Erkenntnisse über einen Gegenstand fest, die man in Auseinandersetzung mit der Fachliteratur gewonnen hat, und teilt diese Erkenntnisse in einer nachvollziehbaren Reihe folge mit. Um der Nachvollziehbarkeit willen sollte die Hausarbeit etwa die Form haben \emph{'Themenbereich – Wissensstand darüber – Feststellung der Problemlage  – Fragestellung –
+Materialauswahl  und  Methodik – Verfolgung  der  Fragestellung  /  Untersuchung  des  Gegenstands – Ergebnis'}. Der Themenbereich  muss  dem  geplanten  Umfang  entsprechend überschaubar sein. (\url{http://www.ats.uni-muenchen.de/studium_lehre/merkblatt-praesentationsformen.pdf})
+
+
+\section{Hinweise zur Form}
+\subsection{Formatierung} 
+
+Diese LaTeX-Vorlage benutzt folgende Formatierung (vgl. \url{http://www.indogermanistik.uni-muenchen.de/downloads/diverses/hausarbeit.pdf}):
+\begin{itemize}
+\setlength{\itemsep}{0pt}
+	\item Schriftart: Linux Libertine O (alternativ: Times New Roman)
+	\item Schriftgröße: 12 pt
+	\item linker und rechter Rand: 3.5 cm, oberer und unterer Rand: 3 cm
+	\item Zeilenabstand: eineinhalbfach (alternativ: 15 pt Zeilenabstand bei 12 pt Schriftgröße)
+\end{itemize}
+
+\noindent
+Bei Umsetzung der Vorgaben in Word sollten unbedingt Formatvorlagen definiert werden.
+
+\subsection{Zitierung} 
+\label{sec:cit}
+
+Die Zitierweise folgt dem Autor-Jahr-System. Der Stellenverweis erfolgt im Text, Fußnoten sollten nur für Erläuterungen und Kommentare verwendet werden. Folgende Hinweise sind der \emph{Language}-Bibliographie-Vorlage von \url{ron.artstein.org} entnommen:\newline
+
+\noindent
+The \emph{Language} style sheet makes a distinction between two kinds of in-text citations: citing a work and citing an author.
+\begin{itemize}
+\item Citing a work:
+  \begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+  \item Two authors are joined by an ampersand (\&).
+  \item More than two authors are abbreviated with \emph{et al.}
+  \item No parentheses are placed around the year (though parentheses
+    may contain the whole citation). 
+  \end{itemize}
+\item Citing an author:
+  \begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parsep}{0pt}
+  \item Two authors are joined by \emph{and}.
+  \item More than two authors are abbreviated with \emph{and colleagues}.
+  \item The year is surrounded by parentheses (with page numbers, if
+    present).
+  \end{itemize} 
+\end{itemize}
+To provide for both kinds of citations, \verb+language.bst+ capitalizes on the fact that \verb+natbib+ citation commands come in
+two flavors. In a typical style compatible with \verb+natbib+, ordinary commands such as \verb+\citet+ and \verb+\citep+ produce short
+citations abbreviated with \emph{et al.}, whereas starred commands such as \verb+\citet*+ and \verb+\citep*+ produce a citation with a
+full author list. Since \emph{Language} does not require citations with full authors, the style \verb+language.bst+ repurposes the starred commands to be used for citing the author. The following table shows how the \verb+natbib+ citation commands work with \verb+language.bst+.
+\begin{center}
+  \begin{tabular}{lll}
+    \toprule
+    Command & Two authors & More than two authors \\
+    \midrule
+    \verb+\citet+ & \citet{hale} & \citet{sprouse} \\
+    \verb+\citet*+ & \citet*{hale} & \citet*{sprouse} \\
+    \addlinespace
+    \verb+\citep+ & \citep{hale} & \citep{sprouse} \\
+    \verb+\citep*+ & \citep*{hale} & \citep*{sprouse} \\
+    \addlinespace
+    \verb+\citealt+ & \citealt{hale} & \citealt{sprouse} \\
+    \verb+\citealt*+ & \citealt*{hale} & \citealt*{sprouse} \\
+    \addlinespace
+    \verb+\citealp+ & \citealp{hale} & \citealp{sprouse} \\
+    \verb+\citealp*+ & \citealp*{hale} & \citealp*{sprouse} \\
+    \addlinespace
+    \verb+\citeauthor+ & \citeauthor{hale} & \citeauthor{sprouse} \\
+    \verb+\citeauthor*+ & \citeauthor*{hale} & \citeauthor*{sprouse} \\
+    \verb+\citefullauthor+ & \citefullauthor{hale} & \citefullauthor{sprouse} \\
+    \bottomrule
+  \end{tabular}
+\end{center}
+Authors of \emph{Language} articles would typically use \verb+\citet*+, \verb+\citep+, \verb+\citealt+ and \verb+\citeauthor*+, though they
+could use any of the above commands. There is no command for giving a full list of authors.
+
+\subsection{Hinweis Literaturverzeichnis}
+Das Literaturverzeichnis dieser Vorlage beinhaltet als Beispielbibliographie die Literaturangaben des \emph{Language} Stylesheets. 
+
+
+\subsection{Glossierung}
+
+Standard für die Erstellung von Interlinearversionen sind die \emph{Leipzig Glossing rules} (\url{https://www.eva.mpg.de/lingua/pdf/Glossing-Rules.pdf}). Die Sprachbeispiele werden durchlaufend nummeriert und sind mit einer Quellenangabe zu versehen, s. Beispiel (\nextx).\footnote{Weitere Optionen zur linguistischen Glossierung mit \emph{ExPex} sind der Dokumentation des Pakets zu entnehmen (\url{http://ftp.uni-erlangen.de/ctan/macros/plain/contrib/expex/expex-doc.pdf}).}
+
+\ex<ex-lezgian>
+\begingl
+\glpreamble  Lesgisch \citep[207]{haspelmath1993grammar} //
+\gla Gila abur-u-n ferma hamišaluǧ güǧüna amuq’-da-č. //
+\glb now they-{\sc obl}-{\sc gen} farm forever behind stay-{\sc fut}-{\sc neg} //
+\glft 'Now their farm will not stay behind forever.' //
+\endgl
+\xe
+
+%Reffering to example by name: (\getref{ex-lezgian}).
+
+Sprachbeispiele im Text werden kursiv formatiert, ihre Übersetzung mit einfachen Anführungszeichen, z. B. \emph{ferma} 'farm'.
+
+
+
+\pagebreak
+
+\addcontentsline{toc}{section}{Literatur}
+\pagestyle{fancy}
+
+\bibliographystyle{language-dt} %using language.bst
+\bibliography{ma-ccl-vorlage} %bib-filename
+
+\nocite{*} %List all bib-entries
+
+\clearpage
+\section*{Abkürzungsverzeichnis}
+\addcontentsline{toc}{section}{Abkürzungsverzeichnis}
+\begin{multicols}{2}
+\begin{acronym}[abr]
+\acro{WALS}{World Atlas of Language Structures}
+\acro{VP}{Verbal phrase}
+\end{acronym}
+\end{multicols}
+
+
+%%%Block Masterarbeit:
+\pagebreak
+\subsection*{Erklärung}
+\label{erklaerung}
+\vspace*{0.5cm}
+Hiermit versichere ich, dass ich die vorliegende Hausarbeit selbstständig und \mbox{ohne} fremde Hilfe angefertigt, alle benutzten Quellen und Hilfsmittel angegeben und \mbox{Zitate} als solche kenntlich gemacht habe.\\[0.5cm]
+Ich versichere ferner, dass ich die Arbeit weder für eine Prüfung an einer weiteren Hochschule noch für eine staatliche Prüfung eingereicht habe. \\[1.0cm]
+München, den \today \\[2.0cm]
+\rule{6.0cm}{0.4pt} \\
+%%%Ende Block Masterarbeit
+
+%%%Block Masterarbeit:
+\pagebreak
+\subsection*{Lebenslauf}
+\label{lebenslauf}
+\vspace*{0.5cm}
+
+\begin{table}[h]
+\begin{tabularx}{\textwidth}{ l  X }
+\textbf{Persönliche Daten:} & \\
+  Name: & ...\\
+  Geburtsdatum: & ... \\
+  Geburtsort: & ...\\[1.0cm]
+\textbf{Schulausbildung:} & \\
+  1996 - 2000: & ...\\
+  2000 - 2008: & ...\\[1.0cm]  
+\textbf{Studium:} & \\
+  WS 2008 - 2014: & ...\\[1.0cm]
+\end{tabularx}
+\end{table}
+
+\noindent
+München, den \today \\[2.0cm]
+\rule{6.0cm}{0.4pt} \\
+%%%Ende Block Masterarbeit
+
+\end{document}
