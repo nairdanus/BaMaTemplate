@@ -31,38 +31,35 @@
 \newtoks\ort              % Wohnort des Bearbeiters
 
 
-\if@BaMa@english
+\if@BaMa@german
+  \global\fach{Computerlinguistik}
+  \global\ort{München}
+  \global\fakultaet{Fakultät für Sprach- und Literaturwissenschaften}
+
+  \if@BaMa@master
+    \global\arbeit{Masterarbeit}
+  \else
+    \global\arbeit{Bachelorarbeit}
+  \fi
+
+\else
   \global\fach{Computational Linguistics}
   \global\ort{Munich}
   \global\fakultaet{Faculty of Languages and Literature}
   
-  \if@BaMo@bachelor
+  \if@BaMa@master
+    \global\arbeit{Master’s Thesis}
+  \else
     \global\arbeit{Bachelor’s Thesis}
-  \else
-    \global\arbeit{Master¹s Thesis}
   \fi
-  
-\else
-  \global\fach{Computerlinguistik}
-  \global\ort{München}
-
-  \if@BaMo@bachelor
-    \global\arbeit{Bachelorarbeit}
-  \else
-    \global\arbeit{Masterarbeit}
-  \fi
-
 \fi
-  
-  
+
+
+
+
 \global\universitaet{Ludwig-Maximilians-Universität München}
 \global\department{Department 2}
 
-\global\bearbeiter{Max Mustermann}
-\global\betreuer{Betreuer Betreuerus}
-\global\pruefer{Prof. Barbara Plank / Prof. Hinrich Schütze}
-\global\abgabetermin{04.06.2024}
-\global\bearbeitungszeit{26.03.2024 - 04.06.2024}
 
 
 %%
